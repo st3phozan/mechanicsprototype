@@ -12,7 +12,8 @@ public class Controller : MonoBehaviour
 
     public GameObject startScreen, endScreen, inGame;
 
-
+    public AudioClip[] audioClips;
+    public AudioSource audioSource;
 
     Rigidbody2D body;
     public GameObject gravityController;
@@ -24,6 +25,18 @@ public class Controller : MonoBehaviour
         body = gravityController.GetComponent<Rigidbody2D>();
         // scoreText = GetComponent<TMP_Text>();
     }
+    public void PlaySpecificClip(int index)
+{
+    if (index >= 0 && index < audioClips.Length)
+    {
+        audioSource.clip = audioClips[index];
+        audioSource.Play();
+    }
+    else
+    {
+        Debug.LogWarning("Clip index out of range.");
+    }
+}
 
     // Update is called once per frame
     void Update()
@@ -37,7 +50,8 @@ public class Controller : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             heldDown = true;
-
+PlaySpecificClip(0);
+	    
 
 
         }

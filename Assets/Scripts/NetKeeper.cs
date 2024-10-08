@@ -29,6 +29,7 @@ public class NetKeeper : MonoBehaviour
         {
             //gameRestarted = true;
             ctrl.score += 1;
+ctrl.PlaySpecificClip(1);
 
 
         }
